@@ -1,0 +1,45 @@
+
+buildscript {
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+group = 'com.anwenchu'
+version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = '1.8'
+
+configure(allprojects) { project ->
+	apply plugin: 'java'
+	apply plugin: 'org.springframework.boot'
+	configurations {
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+
+	dependencies {
+		compile 'org.apache.logging.log4j:log4j-web:2.13.3'
+		compile 'com.alibaba:fastjson:1.2.47'
+		compile 'mysql:mysql-connector-java:8.0.13'
+		compile 'com.squareup.okhttp3:okhttp:4.5.0'
+		compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+		compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+		compileOnly 'org.projectlombok:lombok:1.18.2'
+		annotationProcessor 'org.projectlombok:lombok:1.18.2'
+		testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+	}
+}
+
