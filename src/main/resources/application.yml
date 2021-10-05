@@ -5,8 +5,8 @@ spring:
   jackson:
     time-zone: GMT+8
   datasource:
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8
-    username: root
+    url: jdbc:mysql://localhost:3306/huobi?serverTimezone=GMT%2B8
+    username: huobi
     password: 12345678
 thread-pool:
   core-size: 32
@@ -18,15 +18,15 @@ thread-pool:
 
 huobi:
   arbitrage:
-#    rest-host: https://api-aws.huobi.pro
-    rest-host: https://api.huobi.pro
-    webSocketHost: wss://api.huobi.pro
-#    webSocketHost: wss://api-aws.huobi.pro
+    rest-host: https://api-aws.huobi.pro
+#    rest-host: https://api.huobi.pro
+#    webSocketHost: wss://api.huobi.pro
+    webSocketHost: wss://api-aws.huobi.pro
     starId: 0
     endId: 135
     webSocketAutoConnect: true
-    apiKey: nicai
-    secretKey: nicai
-    sportAccountId: nicai
+    apiKey: uymylwhfeg-0c390505-de076c4e-f8c25
+    secretKey: d774d55d-dbd1e79e-ecf2c628-42d19
+    sportAccountId: 0
     scale: 3
     jobTime: 1500

@@ -41,7 +41,7 @@ public class HuoBiMarketJob {
     @Scheduled(fixedDelay = 120000)
     public void huoBiZeroMarket() {
         symbolRepository.findAll().subList(config.getStarId(), config.getEndId()).forEach(symbol -> {
-            Date now = DateUtils.getTime(1632930600000l);
+            Date now = DateUtils.getTime(1632930600000L);
             Date before = DateUtils.getBeforeYear(now, -1);
             while (now.after(before)) {
                 Date toDate = DateUtils.getAfterMinute(now, 2000);
