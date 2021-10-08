@@ -1,13 +1,13 @@
 server:
-  port: 1993
+  port: ${APP_PORT:1993}
 
 spring:
   jackson:
     time-zone: GMT+8
   datasource:
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8
-    username: root
-    password: 12345678
+    url: ${JDBC_URL:jdbc:mysql://localhost:3306/huobi?serverTimezone=GMT%2B8}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:12345678}
 thread-pool:
   core-size: 32
   max-size: 64
@@ -18,15 +18,29 @@ thread-pool:
 
 huobi:
   arbitrage:
-#    rest-host: https://api-aws.huobi.pro
-    rest-host: https://api.huobi.pro
-    webSocketHost: wss://api.huobi.pro
-#    webSocketHost: wss://api-aws.huobi.pro
+    rest-host: https://api-aws.huobi.pro
+#    rest-host: https://api.huobi.pro
+#    webSocketHost: wss://api.huobi.pro
+    webSocketHost: wss://api-aws.huobi.pro
     starId: 0
     endId: 135
     webSocketAutoConnect: true
-    apiKey: nicai
-    secretKey: nicai
-    sportAccountId: nicai
+    apiKey: ${API_KEY:nicai}
+    secretKey: ${SECRET_KEY:nicai}
+    sportAccountId: 0
     scale: 3
     jobTime: 1500
+
+
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL57Dialect
+
+#logging:
+#  level:
+#    org.springframework.security:
+#      - debug
+#      - info
+#    org.springframework.web: error
+#    org.hibernate.SQL: debug
+#    org.hibernate.engine.QueryParameters: debug
+#    org.hibernate.engine.query.HQLQueryPlan: debug
+#    org.hibernate.type.descriptor.sql.BasicBinder: trace

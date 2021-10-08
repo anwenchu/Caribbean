@@ -1,20 +1,21 @@
 package com.anwenchu.caribbean.channel.huobi.model;
 
 
-import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.*;
+
+import lombok.*;
+
+
 @Entity
 @Table(name = "t_huobi_market") // 指定关联的数据库的表名
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@Builder
 public class MarketDao {
 
     @Id
@@ -54,5 +55,7 @@ public class MarketDao {
 
     @Column(name = "f_market_day")
     private String marketDay;
+
+    public MarketDao() {}
 
 }

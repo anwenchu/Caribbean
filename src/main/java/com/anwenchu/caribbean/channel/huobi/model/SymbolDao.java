@@ -11,14 +11,14 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "t_huobi_symbols") // 指定关联的数据库的表名
+@Table(name = "t_huobi_symbols")
 @Data
 public class SymbolDao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "f_id")
-    private Long id; // 主键ID
+    private Long id;
 
     @Column(name = "f_symbol")
     private String symbol;
